@@ -10,7 +10,7 @@ export default class Scene {
 
     this.core.container.addChild(this.bunny);
 
-    this.core.onFrame(this.onFrame);
+    this.core.on('frame', this.onFrame);
   }
 
   @autobind

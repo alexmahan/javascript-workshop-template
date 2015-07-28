@@ -1,11 +1,12 @@
 import PIXI from 'pixi.js';
+import eventable from 'app/util/eventable';
 import { autobind } from 'core-decorators';
 
+@eventable('frame')
 export default class Core {
 
   constructor() {
     this.isRunning = false;
-    this.frameCallbacks = [];
   }
 
   attach(elem) {
@@ -40,10 +41,6 @@ export default class Core {
     window.removeEventListener('resize', this.resize);
   }
 
-  onFrame(cb) {
-    this.frameCallbacks.push(cb);
-  }
-
   @autobind
   render(ts) {
     if (!this.isRunning) { return; }
@@ -53,9 +50,7 @@ export default class Core {
 
     requestAnimationFrame(this.render);
 
-    for (let i = 0; i < this.frameCallbacks.length; i++) {
-      this.frameCallbacks[i](delta);
-    }
+    this.trigger('frame', delta);
 
     this.renderer.render(this.stage);
   }
