@@ -1,0 +1,32 @@
+{
+  "name": "javascript-workshop-template",
+  "version": "1.0.0",
+  "description": "Template for a JS project",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/Instrument/javascript-workshop-template",
+  "private": true,
+  "author": "Instrument",
+  "dependencies": {
+    "babel": "^5.8.12",
+    "babel-core": "^5.8.14",
+    "babel-eslint": "^4.0.5",
+    "babel-loader": "^5.1.3",
+    "core-decorators": "^0.1.5",
+    "css-loader": "^0.15.6",
+    "eslint": "^0.24.1",
+    "eslint-loader": "^0.14.2",
+    "exports-loader": "^0.6.2",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "gsap": "^1.16.1",
+    "imports-loader": "^0.6.4",
+    "json-loader": "^0.5.2",
+    "node-sass": "^3.2.0",
+    "pixi.js": "^3.0.7",
+    "sass-loader": "^1.0.3",
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
