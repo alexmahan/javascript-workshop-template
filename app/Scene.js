@@ -1,20 +1,22 @@
-import PIXI from 'pixi.js';
 import { autobind } from 'core-decorators';
+import Paddle from 'app/components/Paddle';
 
 export default class Scene {
   constructor(core) {
     this.core = core;
 
-    let bunnyTexture = PIXI.Texture.fromImage('bunny.png');
-    this.bunny = new PIXI.Sprite(bunnyTexture);
+    this.leftPaddle = new Paddle(-100);
+    this.rightPaddle = new Paddle(100);
 
-    this.core.container.addChild(this.bunny);
+    this.leftPaddle.append(this.core.container);
+    this.rightPaddle.append(this.core.container);
 
     this.core.on('frame', this.onFrame);
   }
 
   @autobind
   onFrame(delta) {
-    this.bunny.rotation = this.bunny.rotation + (0.005 * delta);
+    this.leftPaddle.update(delta);
+    this.rightPaddle.update(delta);
   }
 }
