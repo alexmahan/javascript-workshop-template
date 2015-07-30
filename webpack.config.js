@@ -25,8 +25,8 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
-            'css?sourceMap!' +
-            'sass?sourceMap'
+          'css?sourceMap!' +
+          'sass?sourceMap'
         ),
         exclude: /node_modules|dist/
       },

@@ -65,7 +65,7 @@ export default function(...types) {
 
       let args = [];
 
-      if ('function' === typeof this.eventableState) {
+      if (typeof this.eventableState === 'function') {
         args = this.eventableState(name) || [];
 
         if (!isArray(args)) {
@@ -90,7 +90,7 @@ export default function(...types) {
     }
   });
 
-  return function(target) {
+  return function makeEventable(target) {
     m(target.prototype);
   };
 }
