@@ -28,10 +28,9 @@ export default class Paddle {
   }
 
   update(delta) {
-    let nextYPosition = this.y + (this.velocity * delta);
-
-    let topY = -(window.innerHeight / 2.0);
-    let bottomY = +(window.innerHeight / 2.0);
+    const nextYPosition = this.y + (this.velocity * delta);
+    const topY = -(window.innerHeight / 2.0);
+    const bottomY = +(window.innerHeight / 2.0);
 
     if ((nextYPosition < topY) || (nextYPosition > bottomY)) {
       this.velocity = 0.0;

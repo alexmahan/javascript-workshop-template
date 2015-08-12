@@ -45,7 +45,7 @@ export default class Core {
   render(ts) {
     if (!this.isRunning) { return; }
 
-    let delta = (ts || this.lastTimestamp) - (this.lastTimestamp || 0);
+    const delta = (ts || this.lastTimestamp) - (this.lastTimestamp || 0);
     this.lastTimestamp = ts;
 
     requestAnimationFrame(this.render);

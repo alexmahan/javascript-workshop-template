@@ -7,7 +7,7 @@ import { isArray } from 'underscore';
  * @return {function}
  */
 export default function(...types) {
-  let m = mixin({
+  const m = mixin({
     /**
      * The instanced lookup.
      * @return {Map}
@@ -37,7 +37,7 @@ export default function(...types) {
      * @param {array=} data - The fn data.
      */
     trigger(name, ...data) {
-      let handlers = this.__getLookup().get(name);
+      const handlers = this.__getLookup().get(name);
 
       handlers.forEach((fn) => {
         fn(...data);
@@ -51,7 +51,7 @@ export default function(...types) {
      * @param {boolean} triggerImmediately - If the fn should be called when added.
      */
     on(name, fn, triggerImmediately=false) {
-      let handlers = this.__getLookup().get(name);
+      const handlers = this.__getLookup().get(name);
 
       if (!handlers) { return; }
 
@@ -82,12 +82,12 @@ export default function(...types) {
      * @param {function} fn - The callback function to remove.
      */
     off(name, fn) {
-      let handlers = this.__getLookup().get(name);
+      const handlers = this.__getLookup().get(name);
 
       if (handlers) {
         handlers.delete(fn);
       }
-    }
+    },
   });
 
   return function makeEventable(target) {
